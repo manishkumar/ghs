@@ -1,0 +1,54 @@
+# Build output
+#
+# Everything here is reproducible from source:
+#   swift build             → .build/
+#   ./scripts/make-app.sh   → build/ghs.app
+#   python3 scripts/make-icon.py → build/AppIcon.iconset (Resources/*.icns is
+#                                  the checked-in result, and stays tracked)
+#
+# docs/ is deliberately NOT ignored: the README's images are generated too, but
+# they have to be in the repository for GitHub to render them.
+
+.build/
+build/
+.swiftpm/
+Package.resolved
+*.o
+*.dSYM/
+
+# Signing and distribution
+*.app
+*.dmg
+*.zip
+*.iconset/
+ExportOptions.plist
+
+# Xcode, if anyone opens the package in it
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Never commit a token. GitHub credentials belong in the Keychain or in gh,
+# never in a file in this repository.
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
